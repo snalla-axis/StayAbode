@@ -18,8 +18,8 @@
 
     ```bash
     pip install virtualenv virtualenvwrapper
-    source virtualenvwrapper.sh --python=<python path>
-    mkvirtualenv <env_name>
+    source virtualenvwrapper.sh 
+    mkvirtualenv <env_name> --python=<python path>
     ```
  4. Download golden-eye repository
 
