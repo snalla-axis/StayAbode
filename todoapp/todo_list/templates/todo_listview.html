@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="jumbotron">
+    <h1> Welcome to TODO List ! </h1>
+    <ol>
+        {% for task in tasks %}
+                <li>
+                    <p class="container">
+                        <a href="{{ task.id }}">{{ task.title }}</a> - {{ task.status }}
+                        <a class="btn btn-warning btn-sm" href="{% url "todo_list:details" pk=task.pk %}"> Update</a>
+{#                        <a class="btn btn-outline-danger" href="{% url "todo_list:deletetodo"  pk=task.pk%}"> Delete</a>#}
+                    </p>
+                </li>
+        {% empty %}
+            <h3>No TODO List Add one !</h3>
+            <a class="btn btn-success" href="{% url "todo_list:createtodo" %}"> Create TODO</a>
+        {% endfor %}
+    </ol>
+    {% if tasks %}
+        <a class="btn btn-success" href="{% url "todo_list:createtodo" %}"> Create TODO</a>
+    {% endif %}
+    </div>
+{% endblock %}
